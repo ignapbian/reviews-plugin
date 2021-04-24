@@ -11,7 +11,7 @@
                     
                      $("#json_response").append( 
                     "<tr>"+
-                            "<th class=logo>"+
+                            "<th class=column>"+
                                 "<img src="+ data.toplists["575"][index].logo + ">"+
                                 "<a href=./brand_id>Review</a>"+
                             "</th>"+
