@@ -1,4 +1,5 @@
 <?php 
+    /**Create a local API to extract de data */
         $api = (isset($_GET['api']))?$_GET['api']:''; 
         header('Content-Type: application/json'); 
         if (!$api) { 

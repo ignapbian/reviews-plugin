@@ -22,4 +22,6 @@ body { background: #2a0000 !important;}
       background-color: white;
       width: 60% !important;
   }
- 
+ .listItem{
+   text-align: left;
+ }
