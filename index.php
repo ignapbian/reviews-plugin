@@ -7,42 +7,46 @@
         <script>
             //method get using Jquery to extract de data
             $.get( "./includes/script.php?api=data", function( data ) {
+                //sort array per position and use only "575"
+                var dataSort = data.toplists["575"].sort(function(a,b){
+                    return a.position < b.position ? -1 :1
+                })
                 //for loop to duplicate the row, as many times as necessary
-                for (var index = 0; index < data.toplists["575"].length; index++) {
+                for (var index = 0; index < dataSort.length; index++) {
                     
                      $("#json_response").append( 
                     "<tr>"+
                             "<th class=column>"+
-                                "<img src="+ data.toplists["575"][index].logo + ">"+
+                                "<img src="+ dataSort[index].logo + ">"+
                                 "<a href=./brand_id>Review</a>"+
                             "</th>"+
                         "<td>"+
-                        "<p class=rating"+data.toplists["575"][index].info.rating+" data-default-value="+data.toplists["575"][index].info.rating+">"+
+                        "<p class=rating"+dataSort[index].info.rating+" data-default-value="+dataSort[index].info.rating+">"+
                             "<img src=./img/star.png data-value=1 class=img-responsive>"+
                             "<img src=./img/star.png data-value=2 class=img-responsive>"+
                             "<img src=./img/star.png data-value=3 class=img-responsive>"+
                             "<img src=./img/star.png data-value=4 class=img-responsive>"+
                             "<img src=./img/star.png data-value=5 class=img-responsive>"+
                         "</p>"+
-                            "<p>"+data.toplists["575"][index].info.bonus +"</p>"+
+                            "<p>"+dataSort[index].info.bonus +"</p>"+
                             "</td>"+
-                        "<td class=listItem id=list"+data.toplists["575"][index].brand_id+"></td>"+
+                        "<td class=listItem id=list"+dataSort[index].brand_id+"></td>"+
                         "<td>"+
-                            "<button type=button onclick=window.location.href='"+data.toplists["575"][index].play_url+"'>PLAY NOW</button>"+
-                            "<p>"+data.toplists["575"][index].terms_and_conditions +"</p>"+
+                            "<button type=button onclick=window.location.href='"+dataSort[index].play_url+"'>PLAY NOW</button>"+
+                            "<p>"+dataSort[index].terms_and_conditions +"</p>"+
                         "</td>"+
                     "</tr>"
 
                     );
                     //for the rating stars I make a loop to add the stars
-                    var count = $(".rating"+data.toplists["575"][index].info.rating+"").data('defaultValue');
+                    var count = $(".rating"+dataSort[index].info.rating+"").data('defaultValue');
                     for(var i = 1; i <= count; i++){
                         $('.rating'+count+' > img[data-value=' + i + ']').attr("src","./img/star-fill.png");
                     }
                     //for the list of features use split to separate it by commas
-                    var string = data.toplists["575"][index].info.features.toString().split(',');
+                    var string = dataSort[index].info.features.toString().split(',');
                     for(var i = 0; i < string.length; i++){
-                        $("#list"+data.toplists["575"][index].brand_id+"").append("<li>"+string[i]+"</li>");
+                        $("#list"+dataSort[index].brand_id+"").append("<li>"+string[i]+"</li>");
                     }
                 }
                 });
