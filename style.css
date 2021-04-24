@@ -1,0 +1,28 @@
+.img-responsive {
+    display: inline-block;
+    width: 30px;
+  }
+  table {
+    text-align: center!important;
+  }
+  table > thead > tr > th{
+    background-color: #e4b100 !important;
+  }
+  button{
+    background-color: #008920!important;
+    color: white!important;
+    border: 0!important;
+    border-radius: 10px!important;
+    width: 150px!important;
+    height: 43px!important;
+    text-decoration: underline!important;
+  }
+  .container{
+      background-color: white;
+  }
+  body{
+    background-color:"#2a0000"!important;
+  }
+  .logo{
+      
+  }
