@@ -17,8 +17,9 @@
                      $("#json_response").append( 
                     "<tr>"+
                             "<th class=column>"+
+                                "<a href=./brand_id>"+
                                 "<img src="+ dataSort[index].logo + ">"+
-                                "<a href=./brand_id>Review</a>"+
+                                "Review</a>"+
                             "</th>"+
                         "<td>"+
                         "<p class=rating"+dataSort[index].info.rating+" data-default-value="+dataSort[index].info.rating+">"+
